@@ -41,7 +41,7 @@ def create_train_data():
         return np.load(TRAIN_DATA_FILE, allow_pickle=True)
 
     training_data = []
-    for img in tqdm(os.listdir(TRAIN_DIR)): # TQDM TO MAKE IT PRETTY
+    for img in tqdm(os.listdir(TRAIN_DIR)): # TQDM TO MAKE IT PRETTY WHILE LOADING
         label = label_img(img)
         path = os.path.join(TRAIN_DIR, img)
         img = resize_image(path)
