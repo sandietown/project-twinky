@@ -73,7 +73,6 @@ def show_results(test_data, model):
     fig = plt.figure()
     pos = 1
     for data in test_data:
-        img_file = data[1]
         img_data = data[0]
         orig = img_data
         data = img_data.reshape(IMG_SIZE, IMG_SIZE, 1)
@@ -83,7 +82,7 @@ def show_results(test_data, model):
         if np.argmax(model_out) == 1:
             pos += 1
             y = fig.add_subplot(8, 8, pos)
-            str_label = '[DOG]'# %s' % img_file
+            str_label = '[DOG]'
             y.imshow(orig, cmap='gray')
             plt.title(str_label)
             y.axes.get_xaxis().set_visible(False)

@@ -3,7 +3,7 @@ import twinky.learning as tl
 
 
 def run_main():
-    train_data = tl.create_train_data()
+    # train_data = tl.create_train_data()
 
     model = tl.create_model()
 

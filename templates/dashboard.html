@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %} Visualizations {% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <figure class="figure col-8 offset-3">
+        <h4>Paintings by Artists</h4>
+        <canvas class="canvas" id="chart1"></canvas>
+    </figure>
+</div>
+<div class="row">
+    <figure class="figure col-8 offset-3">
+        <h4>Artist Country of Birth</h4>
+        <canvas class="canvas" id="chart2"></canvas>
+    </figure>
+</div>
+<div class="row">
+    <figure class="figure col-8 offset-3">
+        <h4>Artist by Year of Birth</h4>
+        <canvas class="canvas" id="chart3"></canvas>
+    </figure>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+    integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    const colorWheel = ['HotPink', 'Crimson', 'Tomato', 'Gold', 'Goldenrod', 'ForestGreen', 'DarkTurquoise',
+        'RoyalBlue', 'MediumPurple', 'MistyRose', 'LightSlateGray'
+    ];
+    // Pie chart
+    const pieContext = document.getElementById('chart1').getContext('2d');
+    const pieChart = new Chart(pieContext, {
+        type: 'pie',
+        data: {
+            labels: [
+                'Albercht Dürer', 'Diego Rivera', 'Diego Velazquez', 'Edgar Degas', 'Edouard Manet',
+                'Francisco Goya',
+                'Giotto di Bondone', 'Gustave Courbet', 'Titian', 'Vincent van Gogh', 'Others'
+            ],
+            datasets: [{
+                label: 'Paintings by Artists',
+                data: [2, 1, 2, 1, 2, 5, 1, 2, 3, 1, 16],
+                backgroundColor: colorWheel,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    position: 'left',
+                }
+            }
+        }
+    });
+    pieChart.canvas.parentNode.style.width = '700px';
+    // Bar chart
+    const barContext = document.getElementById('chart2').getContext('2d');
+    const barChart = new Chart(barContext, {
+        type: 'bar',
+        data: {
+            labels: ['Spain', 'Mexico', 'France', 'Italy', 'Netherlands'],
+            datasets: [{
+                label: 'Country',
+                data: [3, 1, 3, 2, 1],
+                backgroundColor: colorWheel,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+        }
+    });
+    barChart.canvas.parentNode.style.width = '1200px';
+    // Line chart
+    const lineContext = document.getElementById('chart3').getContext('2d');
+    const lineChart = new Chart(lineContext, {
+        type: 'line',
+        data: {
+            labels: ['Before 1400', '1401 - 1500', '1501 - 1600', '1601 - 1700', '1701 - 1800', '1801 - 1900',
+                'After 1900'
+            ],
+            datasets: [{
+                label: 'Year of Birth',
+                data: [1, 2, 1, 0, 1, 5, 0],
+                backgroundColor: colorWheel,
+                hoverOffset: 4
+            }]
+        },
+        options: {
+            plugins: {
+                legend: {
+                    display: false,
+                }
+            }
+        }
+    });
+    lineChart.canvas.parentNode.style.width = '1200px';
+</script>
+
+{% endblock %}

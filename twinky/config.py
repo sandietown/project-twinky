@@ -6,11 +6,10 @@ BASE_PATH = Path(__file__).parent.absolute()
 SECRET='thisisasecretsecret'
 TRAIN_DIR = '{}/../Datasets/Train'.format(BASE_PATH)
 TEST_DIR = '{}/../Datasets/Test'.format(BASE_PATH)
-# TEST_DIR = '{}/../Datasets/perritos_met'.format(BASE_PATH)
-ARTISTS = ['Diego_Velazquez', 'Gustave_Courbet',
-           'Henri_de_Toulouse-Lautrec', 'Titian']
-ART_BASE_DIR = '{}/../Datasets/artworks/resized/'.format(BASE_PATH)
-ART_PATH = '/artworks/resized/'
+ARTISTS = ['Albrecht_Dürer', 'Diego_Rivera', 'Diego_Velazquez', 'Edgar_Degas', 'Edouard_Manet',
+           'Francisco_Goya', 'Giotto_di_Bondone', 'Gustave_Courbet', 'Titian', 'Vincent_van_Gogh', 'Others']
+ART_BASE_DIR = '{}/../Datasets/Test/'.format(BASE_PATH)
+ART_PATH = '/Test/'
 
 # Model parameters
 LR = 1e-3  # LEARNING RATE
